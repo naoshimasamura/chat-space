@@ -1,0 +1,21 @@
+.chat-main
+  .main-header
+    .main-header__left-box
+      %h2.main-header__left-box__current-group{"data-group_id" => "26592"}
+        ABC
+      %ul.main-header__left-box__member-list
+        Member：
+        %li.main-header__left-box__member-list__member g
+    %a{:href => "/groups/26592/edit"}
+      .main-header__edit-btn Edit
+  .messages
+  .form
+    .input-box
+      .input-box__message
+        %input{class:"text",type:"text",placeholder:"type a message"}
+        %label{class:"image"}
+          = icon('fas', 'image')
+          %input{class:"btn",type:"file"}
+      .input-box__submit
+        %input{class:"btn",type:"submit",value:"Send"}
+        
