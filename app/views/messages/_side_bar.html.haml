@@ -2,13 +2,13 @@
   .side-header
     .side-header__box
       %p.side-header__box__user-name
-        NAOSHI
+        = current_user.name
       %ul.side-header__box__menu
         %li.side-header__box__menu__new-groups
         = link_to "/groups/new",class:"fa fa-edit" do
           =icon('fab','fa-edit')
         %li.side-header__box__menu__edit-user
-        = link_to "/users/edit",class:"fa fa-cog" do
+        = link_to edit_user_path(current_user),class:"fa fa-cog" do
           =icon('fab','fa-cog')
   .groups
     .groups__group
