@@ -1,21 +1,22 @@
 .chat-main
   .main-header
     .main-header__left-box
-      %h2.main-header__left-box__current-group{"data-group_id" => "26592"}
-        ABC
+      %h2.main-header__left-box__current-group{"data-group_id" => "26592"}  
+        = @group.name
       %ul.main-header__left-box__member-list
-        Member：
-        %li.main-header__left-box__member-list__member g
-    %a{:href => "/groups/26592/edit"}
-      .main-header__edit-btn Edit
-  .messages
+        member:
+        - @users.each do |user|
+          =user.name
+    .main-header__edit-btn 
+      =link_to edit_group_path(@group), class:"edit-btn" do
+        EDIT
+  .message
+    = render @messages
   .form
-    .input-box
-      .input-box__message
-        %input{class:"text",type:"text",placeholder:"type a message"}
-        %label{class:"image"}
-          = icon('fas', 'image')
-          %input{class:"btn",type:"file"}
-      .input-box__submit
-        %input{class:"btn",type:"submit",value:"Send"}
-        
+    = form_for [@group, @message] do |f|
+      .input-box
+        = f.text_field :content, class: 'form-message', placeholder: 'type a message'
+        = f.label :image, class: 'input' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit'Send', class:'form_submit'
