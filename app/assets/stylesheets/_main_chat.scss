@@ -49,6 +49,7 @@
    overflow: scroll;
    margin: 0;
    .upper-message{
+    display: flex;
     margin-bottom: 10px;
     &__user-name{
      color: #434a54;
