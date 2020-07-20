@@ -24,7 +24,6 @@ $(function(){
   };
   function buildHTML(message){
     if ( message.image ) {
-        //data-idが反映されるようにしている
         var html =
          `<div class="messages" data-message-id=${message.id}>
             <div class="upper-message">
